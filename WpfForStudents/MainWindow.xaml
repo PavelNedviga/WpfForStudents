@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfForStudents"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="MainWindow"
         Width="800"
@@ -25,13 +26,28 @@
                 <Button Content="{TemplateBinding Content}" Style="{StaticResource Default}"/>
             </StackPanel>
         </ControlTemplate>
+        <Style TargetType="Button" x:Key="BaseBtn" BasedOn="{StaticResource MahApps.Styles.Button}">
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="black"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+                
+            </Setter>
+        </Style>
     </Window.Resources>
-    <UniformGrid Columns="1" Rows="4" HorizontalAlignment="Stretch">
+    <UniformGrid Columns="1" Rows="5" HorizontalAlignment="Stretch">
         <CheckBox Name="check"
                   Margin="5" Content="Blocker" HorizontalAlignment="Center"/>
         <TextBox Margin="5" 
-                   IsEnabled="{Binding ElementName=check, Path=IsChecked}"/>
-        <TextBox Margin="5">
+                   IsEnabled="{Binding ElementName=check, Path=IsChecked}" Tag="введите что-то"/>
+        <TextBox Margin="5" 
+                 Tag="введите что-то">
             <TextBox.Style>
                 <Style BasedOn="{StaticResource MahApps.Styles.TextBox}" TargetType="TextBox">
                     <Style.Triggers>
@@ -43,6 +59,6 @@
             </TextBox.Style>
         </TextBox>
         <Button Margin="5" Content="Reset?"/>
-
+        <TextBox Text="" Tag="dddd" Style="{StaticResource MahApps.Styles.TextBox}" Controls:TextBoxHelper.Watermark="This is a textbox helper"/>
     </UniformGrid>
 </mah:MetroWindow>
