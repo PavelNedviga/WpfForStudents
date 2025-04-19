@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,20 +10,21 @@ using System.Windows.Input;
 
 namespace WpfForStudents
 {
-    class MainViewModel : INotifyPropertyChanged
+    class MainViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
+        //public event PropertyChangedEventHandler? PropertyChanged;
+        //public void OnPropertyChanged([CallerMemberName] string prop = "")
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        //}
         private int clicks;
         public int Clicks { 
             get { return clicks; } 
             set 
             { 
-                clicks = value; 
-                OnPropertyChanged();
+                clicks = value;
+                RaisePropertyChanged(() => Clicks);
+                //OnPropertyChanged();
                 //OnPropertyChanged("Clicks");
                 //OnPropertyChanged(nameof(Clicks));
             } 
