@@ -20,10 +20,14 @@
             VerticalAlignment="Center"
             FontSize="30"
             Text="{Binding Clicks}"/>
+            <TextBlock             HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="30"
+            Text="{Binding SelectedRecord, XPath=Description, Mode=Default, NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}"/>
             <Button Command="{Binding ClickAdd}" Content="Добавить единицу"/>
             <ListBox
                 HorizontalAlignment="Stretch"
-                ItemsSource="{Binding Records}"
+                ItemsSource="{Binding Records, Mode=OneWay, UpdateSourceTrigger=Default}"
                 SelectedItem="{Binding SelectedRecord}">
                 <!--<ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">

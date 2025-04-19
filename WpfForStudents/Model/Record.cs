@@ -1,4 +1,4 @@
-﻿namespace WpfForStudents
+﻿namespace WpfForStudents.Models
 {
     public class Record
     {
