@@ -20,6 +20,7 @@ namespace WpfForStudents
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
     }
 }

@@ -3,62 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfForStudents"
+        xmlns:vm="clr-namespace:WpfForStudents"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="MainWindow"
         Width="800"
         Height="450"
         WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <Style TargetType="Button" x:Key="Default">
-            <Setter Property="Background" Value="CadetBlue"/>
-            <Setter Property="Foreground" Value="White"/>
-        </Style>
-        <Style TargetType="Button" x:Key="Error">
-            <Setter Property="Background" Value="IndianRed"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderThickness" Value="1"/>
-        </Style>
-        <ControlTemplate TargetType="Button" x:Key="BaseBtnTemplate">
-            <StackPanel>
-                <TextBlock Text="{TemplateBinding Tag}" Foreground="Black" TextAlignment="Center"/>
-                <Button Content="{TemplateBinding Content}" Style="{StaticResource Default}"/>
-            </StackPanel>
-        </ControlTemplate>
-        <Style TargetType="Button" x:Key="BaseBtn" BasedOn="{StaticResource MahApps.Styles.Button}">
-            <Setter Property="Template" >
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="black"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-                
-            </Setter>
-        </Style>
-    </Window.Resources>
-    <UniformGrid Columns="1" Rows="5" HorizontalAlignment="Stretch">
-        <CheckBox Name="check"
-                  Margin="5" Content="Blocker" HorizontalAlignment="Center"/>
-        <TextBox Margin="5" 
-                   IsEnabled="{Binding ElementName=check, Path=IsChecked}" Tag="введите что-то"/>
-        <TextBox Margin="5" 
-                 Tag="введите что-то">
-            <TextBox.Style>
-                <Style BasedOn="{StaticResource MahApps.Styles.TextBox}" TargetType="TextBox">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=check, Path=IsChecked}" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBox.Style>
-        </TextBox>
-        <Button Margin="5" Content="Reset?"/>
-        <TextBox Text="" Tag="dddd" Style="{StaticResource MahApps.Styles.TextBox}" Controls:TextBoxHelper.Watermark="This is a textbox helper"/>
-    </UniformGrid>
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    
+    <Grid>
+        <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="30"
+            Text="{Binding Clicks}"/>
+    </Grid>
 </mah:MetroWindow>
