@@ -19,7 +19,7 @@
         <ControlTemplate TargetType="Button" x:Key="BaseBtnTemplate">
             <StackPanel>
                 <TextBlock Text="{TemplateBinding Tag}" Foreground="Black" TextAlignment="Center"/>
-                <Button Content="{TemplateBinding Content}" />
+                <Button Content="{TemplateBinding Content}" Style="{StaticResource Default}"/>
             </StackPanel>
         </ControlTemplate>
     </Window.Resources>
