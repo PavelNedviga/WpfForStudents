@@ -7,21 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <Style TargetType="Button">
+        <Style TargetType="Button" x:Key="Default">
             <Setter Property="Background" Value="CadetBlue"/>
             <Setter Property="Foreground" Value="White"/>
         </Style>
-        <Style TargetType="Button" x:Key="Default">
+        <Style TargetType="Button" x:Key="Error">
             <Setter Property="Background" Value="IndianRed"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="BorderThickness" Value="0"/>
-
+            <Setter Property="BorderThickness" Value="1"/>
         </Style>
     </Window.Resources>
     <UniformGrid Columns="4">
         <Button Content="Button" Margin="5" Grid.Column="2"/>
         <Button Content="Button" Margin="5" Grid.Column="2" Style="{StaticResource Default}"/>
         <Button Content="Button" Margin="5" Grid.Column="2" Background="BlanchedAlmond" Foreground="DimGray"/>
-        <Button Content="Button" Margin="5" Grid.Column="2"/>
+        <Button Content="Button" Margin="5" Grid.Column="2" Style="{StaticResource Error}"/>
     </UniformGrid>
 </Window>
