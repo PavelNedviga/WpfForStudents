@@ -35,7 +35,7 @@ namespace WpfForStudents
                 return new DelegateCommand((obj) =>
                 {
                     Clicks++;
-                });
+                }, obj => Clicks <= 10);
             }
         }
 
