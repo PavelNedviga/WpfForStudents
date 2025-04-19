@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="DevExpressMvvm" Version="24.1.6" />
     <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
   </ItemGroup>
 
 </Project>

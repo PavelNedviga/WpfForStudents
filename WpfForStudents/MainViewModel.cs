@@ -12,23 +12,18 @@ namespace WpfForStudents
 {
     class MainViewModel : ViewModelBase
     {
-        //public event PropertyChangedEventHandler? PropertyChanged;
-        //public void OnPropertyChanged([CallerMemberName] string prop = "")
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+
+        //private int clicks;
+        //public int Clicks { 
+        //    get { return clicks; } 
+        //    set 
+        //    { 
+        //        clicks = value;
+        //        RaisePropertyChanged(() => Clicks);
+        //    } 
         //}
-        private int clicks;
-        public int Clicks { 
-            get { return clicks; } 
-            set 
-            { 
-                clicks = value;
-                RaisePropertyChanged(() => Clicks);
-                //OnPropertyChanged();
-                //OnPropertyChanged("Clicks");
-                //OnPropertyChanged(nameof(Clicks));
-            } 
-        }
+
+        public int Clicks { get; set; }
 
         public ICommand ClickAdd
         {
