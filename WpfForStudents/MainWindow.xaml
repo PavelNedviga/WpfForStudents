@@ -16,9 +16,18 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
+        <ControlTemplate TargetType="Button" x:Key="BaseBtnTemplate">
+            <StackPanel>
+                <TextBlock Text="{TemplateBinding Tag}" Foreground="Black" TextAlignment="Center"/>
+                <Button Content="{TemplateBinding Content}" />
+            </StackPanel>
+        </ControlTemplate>
     </Window.Resources>
     <UniformGrid Columns="4">
-        <Button Content="Button" Margin="5" Grid.Column="2"/>
+        <Button Content="Text" Margin="3"
+                Style="{StaticResource DefaultBtn}"
+                Tag="Super Button"
+                Template="{StaticResource BaseBtnTemplate}" />
         <Button Content="Button" Margin="5" Grid.Column="2" Style="{StaticResource Default}"/>
         <Button Content="Button" Margin="5" Grid.Column="2" Background="BlanchedAlmond" Foreground="DimGray"/>
         <Button Content="Button" Margin="5" Grid.Column="2" Style="{StaticResource Error}"/>
