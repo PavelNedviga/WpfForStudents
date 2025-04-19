@@ -1,5 +1,9 @@
 # WPF + MVVM
 
+## Посмотреть
+
+[Хорошие и короткие видеоуроки](https://www.youtube.com/playlist?list=PLeAZCOMG14bGlFQSTmXz7aSbC90md5oJe)
+
 ## Почему WPF?
 
 декларативный UI, аппаратное ускорение, XAML + C# раздельно
@@ -60,7 +64,8 @@
 
 ## Схема работы паттерна
 
-![1745073475837](image/README/1745073475837.png)
+![image](https://github.com/user-attachments/assets/422e74b0-5d74-46c8-862b-7c0a64a8ee82)
+
 
 ## Интерфейсы
 
