@@ -26,12 +26,23 @@
             </StackPanel>
         </ControlTemplate>
     </Window.Resources>
-    <UniformGrid Columns="4">
-        <Button Content="Text" Margin="3"               
-                Tag="Super Button"
-                Template="{StaticResource BaseBtnTemplate}" />
-        <Button Content="Button" Margin="5" Grid.Column="2" Style="{StaticResource Default}"/>
-        <Button Content="Button" Margin="5" Grid.Column="2" Background="BlanchedAlmond" Foreground="DimGray"/>
-        <Button Content="Button" Margin="5" Grid.Column="2" Style="{StaticResource Error}"/>
+    <UniformGrid Columns="1" Rows="4" HorizontalAlignment="Stretch">
+        <CheckBox Name="check"
+                  Margin="5" Content="Blocker" HorizontalAlignment="Center"/>
+        <TextBox Margin="5" 
+                   IsEnabled="{Binding ElementName=check, Path=IsChecked}"/>
+        <TextBox Margin="5">
+            <TextBox.Style>
+                <Style BasedOn="{StaticResource MahApps.Styles.TextBox}" TargetType="TextBox">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=check, Path=IsChecked}" Value="False">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <Button Margin="5" Content="Reset?"/>
+
     </UniformGrid>
 </mah:MetroWindow>
