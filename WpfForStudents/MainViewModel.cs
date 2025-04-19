@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace WpfForStudents
 {
@@ -27,17 +28,28 @@ namespace WpfForStudents
             } 
         }
 
+        public ICommand ClickAdd
+        {
+            get
+            {
+                return new DelegateCommand((obj) =>
+                {
+                    Clicks++;
+                });
+            }
+        }
+
         public MainViewModel() 
         {
-            Task.Factory.StartNew(() =>
-            {
-                while (true) 
-                {
-                    Task.Delay(1000).Wait();
-                    Clicks++;
-                    //clicks++;
-                }
-            });
+            //Task.Factory.StartNew(() =>
+            //{
+            //    while (true) 
+            //    {
+            //        Task.Delay(1000).Wait();
+            //        Clicks++;
+            //        //clicks++;
+            //    }
+            //});
         }
     }
 }
