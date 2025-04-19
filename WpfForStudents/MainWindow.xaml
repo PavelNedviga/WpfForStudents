@@ -13,7 +13,6 @@
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
-    
     <Grid>
         <StackPanel VerticalAlignment="Center">
         <TextBlock
@@ -22,6 +21,16 @@
             FontSize="30"
             Text="{Binding Clicks}"/>
             <Button Command="{Binding ClickAdd}" Content="Добавить единицу"/>
+            <ListBox
+                HorizontalAlignment="Stretch"
+                ItemsSource="{Binding Records}"
+                SelectedItem="{Binding SelectedRecord}">
+                <!--<ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Template" Value="{StaticResource RecordItem}"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>-->
+            </ListBox>
         </StackPanel>
 
     </Grid>

@@ -1,6 +1,7 @@
 ﻿using DevExpress.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -12,16 +13,13 @@ namespace WpfForStudents
 {
     class MainViewModel : ViewModelBase
     {
-
-        //private int clicks;
-        //public int Clicks { 
-        //    get { return clicks; } 
-        //    set 
-        //    { 
-        //        clicks = value;
-        //        RaisePropertyChanged(() => Clicks);
-        //    } 
-        //}
+        public ObservableCollection<Record> Records { get; set; } = new ObservableCollection<Record>() 
+        { 
+            new Record(1,"video", "video description", "mp4"),
+            new Record(2,"audio", "audio description", "mp3"),
+            new Record(3,"book", "book description", "epub"),
+        };
+        public Record SelectedRecord {get;set;}
 
         public int Clicks { get; set; }
 
@@ -38,15 +36,7 @@ namespace WpfForStudents
 
         public MainViewModel() 
         {
-            //Task.Factory.StartNew(() =>
-            //{
-            //    while (true) 
-            //    {
-            //        Task.Delay(1000).Wait();
-            //        Clicks++;
-            //        //clicks++;
-            //    }
-            //});
+
         }
     }
 }
